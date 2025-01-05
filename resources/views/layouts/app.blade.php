@@ -28,6 +28,7 @@
                     <form action="{{ route('logout') }}" method="POST" class="d-inline">
                         @csrf
                         <button class="nav-link border-0 bg-transparent">Logout</button>
+                        
                     </form>
                 @endguest
             </div>

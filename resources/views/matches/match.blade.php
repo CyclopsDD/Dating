@@ -21,7 +21,7 @@
                                                  style="width: 80px; height: 80px; object-fit: cover;">
                                             <div>
                                                 <h5 class="mb-1">{{ $match->name }}</h5>
-                                                <p class="text-muted mb-1">{{ $match->age }} years old</p>
+                                                <p class="text-muted mb-1">{{ $match->birth_date }} years old</p>
                                                 <p class="mb-1"><i class="fas fa-map-marker-alt"></i> {{ $match->location }}</p>
                                             </div>
                                         </div>
