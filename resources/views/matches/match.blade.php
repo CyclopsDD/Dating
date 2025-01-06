@@ -15,14 +15,25 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="match-card hover-effect p-3 rounded-lg border">
                                         <div class="d-flex align-items-center">
-                                            <img src="{{ $match->profile_photo ?? 'default-avatar.jpg' }}" 
-                                                 class="rounded-circle mr-3" 
-                                                 alt="Profile Photo"
-                                                 style="width: 80px; height: 80px; object-fit: cover;">
+                                        <img src="{{ $match->profile_photo ? Storage::url($match->profile_photo) : asset('default-avatar.jpg') }}" 
+                                            class="rounded-circle mr-3" 
+                                             alt="Profile Photo"
+                                             style="width: 80px; height: 80px; object-fit: cover;">
                                             <div>
-                                                <h5 class="mb-1">{{ $match->name }}</h5>
-                                                <p class="text-muted mb-1">{{ $match->birth_date }} years old</p>
-                                                <p class="mb-1"><i class="fas fa-map-marker-alt"></i> {{ $match->location }}</p>
+                                            <h5 class="mb-1">{{ $match->name }}</h5>
+                                            @if($match->age())
+                                                <p class="text-muted mb-1" aria-label="Age: {{ $match->age() }} years">
+                                                    {{ $match->age() }} years old
+                                                </p>
+                                            @else
+                                                <p class="text-muted mb-1">
+                                                    <small>Age not specified</small>
+                                                </p>
+                                            @endif
+                                            <p class="mb-1">
+                                                <i class="fas fa-map-marker-alt"></i> 
+                                                {{ $match->location ?? 'Location not specified' }}
+                                            </p>
                                             </div>
                                         </div>
                                         <div class="mt-3">
